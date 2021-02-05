@@ -146,7 +146,7 @@ module Faktory
     # Returned value will either be the JID String if successful OR
     # a symbol corresponding to an error.
     def push(job)
-      Faktory.logger("Job#client_push(item) #{Faktory.dump_json(job)}")
+      Faktory.logger.info("Job#client_push(item) #{Faktory.dump_json(job)}")
 
       transaction do
         command "PUSH", Faktory.dump_json(job)
