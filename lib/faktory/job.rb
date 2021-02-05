@@ -124,6 +124,7 @@ module Faktory
       #
       def faktory_options(opts={})
         # stringify
+        Faktory.logger.info("called faktory_options with #{opts} #{self.faktory_options_hash}")
         self.faktory_options_hash = get_faktory_options.merge(Hash[opts.map{|k, v| [k.to_s, v]}])
       end
 
