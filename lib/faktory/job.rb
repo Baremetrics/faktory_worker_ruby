@@ -90,6 +90,7 @@ module Faktory
 
         Faktory.client_middleware.invoke(item, pool) do
           pool.with do |c|
+            Faktory.logger("Job#client_push(item) #{item}")
             c.push(item)
           end
         end
@@ -99,6 +100,7 @@ module Faktory
     module ClassMethods
 
       def set(options)
+        Faktory.logger.info("Job.set(options) #{options}")
         Setter.new(options.merge('jobtype'.freeze => self))
       end
 
